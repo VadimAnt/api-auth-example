@@ -74,6 +74,20 @@ module.exports = {
     }
   },
 
+  githubSignIn: (req, res, next) => {
+    try {
+      const { user } = req;
+      const token = sign({
+        sub: req.user.id, 
+        iat: new Date().getTime(),
+      });
+
+      res.json({ token, user }); 
+    } catch (error) {
+      return next(error);
+    }
+  },
+
   secret: async (req, res, next) => {
     res.json({
       user: req.user,

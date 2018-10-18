@@ -7,6 +7,7 @@ const JwtMiddleware = passport.authenticate('jwt', { session: false });
 const localMiddleware = passport.authenticate('local', { session: false });
 const GoogleMeddleware = passport.authenticate('google');
 const FacebookMeddleware = passport.authenticate('facebook');
+const GithubMeddleware = passport.authenticate('github');
 
 router.post('/signup', 
   validate(AuthValidation.signup), 
@@ -40,6 +41,15 @@ router.get('/facebook',
 router.get('/facebook/redirect', 
   FacebookMeddleware,
   AuthController.facebookSignIn,
+);
+
+router.get('/github', 
+  passport.authenticate('github', { session: false, scope: ['email'] }), 
+);
+
+router.get('/github/redirect', 
+  GithubMeddleware,
+  AuthController.githubSignIn,
 );
 
 module.exports = router;
