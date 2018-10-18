@@ -20,8 +20,13 @@ app.use(passport.session());
 // Routes
 app.use(routes);
 
-// Start the server
+// 404
+app.use((req, res, next) => {
+  err.status = 404;
+  next(err);
+});
 
+// Error handler error
 app.use((error, req, res, next) => {
   console.log(error);
 })

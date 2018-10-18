@@ -1,0 +1,130 @@
+{
+	"variables": [],
+	"info": {
+		"name": "api-auth",
+		"_postman_id": "11888b84-0f64-ab80-e872-ec99776038fe",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Local signup",
+			"request": {
+				"url": "http://localhost:3000/auth/signup",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"test@mail.ru\",\n\t\"password\": \"123456789\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Local signin",
+			"request": {
+				"url": "http://localhost:3000/auth/signin",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"test@mail.ru\",\n\t\"password\": \"123456789\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Google signin - redirect to google",
+			"request": {
+				"url": "http://localhost:3000/auth/google",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"access_token\": \"ya29.Gls5BvolOXsaRXebZL9rFIFep40VAvF7-2hplC5p1KsJNtNW82CHnqeskIlZr2QF_wqk60BWJn3M5TRslDnnlKbeMxXlOeMc07CCWL3gbFwA2KQJYLxnjLPb_PL2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Google redirect - redirect here from google after auth",
+			"request": {
+				"url": "http://localhost:3000/auth/google/redirect",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Secret url",
+			"request": {
+				"url": "http://localhost:3000/auth/secret",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1YmM3NDE2N2I5MTg1NjA5NmMwZmUzMTMiLCJpYXQiOjE1Mzk3ODUyNDM5Mzl9.oRAFByMJyajnaZfzNyxP8ZLGzAdrVEZmHUcO_sq3MVw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Linkedin signin - redirect to linkedin",
+			"request": {
+				"url": "http://localhost:3000/auth/linkedin",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"access_token\": \"ya29.Gls5BvolOXsaRXebZL9rFIFep40VAvF7-2hplC5p1KsJNtNW82CHnqeskIlZr2QF_wqk60BWJn3M5TRslDnnlKbeMxXlOeMc07CCWL3gbFwA2KQJYLxnjLPb_PL2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Linkedin redirect - redirect here from linkedin after auth copy",
+			"request": {
+				"url": "http://localhost:3000/auth/linkedin/redirect",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
