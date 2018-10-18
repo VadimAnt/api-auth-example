@@ -11,6 +11,8 @@
  - `/auth/facebook/redirect`
  - `/auth/github`
  - `/auth/github/redirect`
+ - `/auth/linkedin` - linkedin need session (express-session)
+ - `/auth/linkedin/redirect`
  - `/auth/signup` - Local strategy, register new user by email and password
  - `/auth/signin` - Local strategy, login by email, password
  - `/auth/secret` - check auth
