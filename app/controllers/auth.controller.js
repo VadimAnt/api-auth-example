@@ -75,6 +75,8 @@ module.exports = {
   },
 
   secret: async (req, res, next) => {
-    res.send('ok');
+    res.json({
+      user: req.user,
+    });
   }
 }
