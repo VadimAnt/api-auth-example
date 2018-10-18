@@ -4,7 +4,7 @@
 
 ## Strategies: Local | JWT | GOOGLE | FACEBOOK
 
-##Routes: 
+## Routes: 
  - `/auth/google` - send scope (This is done from the front end)
  - `/auth/google/redirect` - after sucess auth (Passport set req.user, and recieve jwt token)
  - `/auth/facebook`
