@@ -15,3 +15,4 @@
  - `/auth/signin` - Local strategy, login by email, password
  - `/auth/secret` - check auth
 
+Also you need to create oauth application in each system (See in passport documentation).
