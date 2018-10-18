@@ -6,8 +6,9 @@ const { validate, AuthValidation } = require('../validations');
 const JwtMiddleware = passport.authenticate('jwt', { session: false });
 const localMiddleware = passport.authenticate('local', { session: false });
 const GoogleMeddleware = passport.authenticate('google');
-const FacebookMeddleware = passport.authenticate('facebook');
-const GithubMeddleware = passport.authenticate('github');
+const FacebookMeddleware = passport.authenticate('facebook', { session: false });
+const GithubMeddleware = passport.authenticate('github', { session: false });
+const LinkedinMeddleware = passport.authenticate('linkedin', { session: false });
 
 router.post('/signup', 
   validate(AuthValidation.signup), 
@@ -50,6 +51,15 @@ router.get('/github',
 router.get('/github/redirect', 
   GithubMeddleware,
   AuthController.githubSignIn,
+);
+
+router.get('/linkedin', 
+  passport.authenticate('linkedin', { session: false, scope: ['r_basicprofile', 'r_emailaddress'] }), 
+);
+
+router.get('/linkedin/redirect', 
+  LinkedinMeddleware,
+  AuthController.linkedinSignIn,
 );
 
 module.exports = router;

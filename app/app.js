@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
@@ -13,7 +14,9 @@ const app = express();
 
 // Middlewares
 app.use(bodyParser.json());
+app.use(session({ secret: process.env.JWT_SECRET_KEY}))
 app.use(passport.initialize());
+app.use(passport.session());
 // Routes
 app.use(routes);
 
