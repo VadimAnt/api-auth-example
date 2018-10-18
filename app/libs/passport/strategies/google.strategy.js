@@ -12,9 +12,9 @@ passport.deserializeUser(async (id, done) => {
 });
 
 module.exports = new GoogleStrategy({
-  callbackURL: 'http://localhost:3000/auth/google/redirect',
-  clientID: '',
-  clientSecret: '',
+  callbackURL: process.env.GOOGLE_CALLBACK_URL,
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_SECRET_KEY,
 }, async (accessToken, refreshToken, profile, done) => {
   try {
     

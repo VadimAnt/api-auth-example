@@ -4,7 +4,7 @@ const UserModel = require('../../../models/user.model');
 
 module.exports = new JwtStrategy({
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-  secretOrKey: 'test123232312',
+  secretOrKey: process.env.JWT_SECRET_KEY,
 }, async (payload, done) => {
   try {
 

@@ -34,7 +34,7 @@ router.get('/google/redirect',
 );
 
 router.get('/facebook', 
-  passport.authenticate('facebook', { session: false, scope: ['profile', 'email'] }), 
+  passport.authenticate('facebook', { session: false, scope: ['email'] }), 
 );
 
 router.get('/facebook/redirect', 

@@ -5,7 +5,7 @@ const routes = require('./routes');
 const passport = require('./libs/passport');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('', { 
+mongoose.connect(process.env.DB_URI, { 
   useNewUrlParser: true 
 });
 

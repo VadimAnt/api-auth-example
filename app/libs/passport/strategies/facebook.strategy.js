@@ -12,27 +12,27 @@ passport.deserializeUser(async (id, done) => {
 });
 
 module.exports = new FacebookStrategy({
-  callbackURL: 'http://localhost:3000/auth/facebook/redirect',
-  clientID: '',
-  clientSecret: '',
+  callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+  clientID: process.env.FACEBOOK_CLIENT_ID,
+  clientSecret: process.env.FACEBOOK_SECRET_KEY,
 }, async (accessToken, refreshToken, profile, done) => {
   try {
-    console.log(profile);
-    // const userExist = await UserModel.findOne({ 'google.id': profile.id });
-    // if(userExist) {
-    //   return done(null, userExist);
-    // }
+    
+    const userExist = await UserModel.findOne({ 'facebook.id': profile.id });
+    if(userExist) {
+      return done(null, userExist);
+    }
 
-    // const newUser = new UserModel({
-    //   method: 'google',
-    //   google: {
-    //     id: profile.id,
-    //     email: profile.emails[0].value,
-    //   }
-    // });
+    const newUser = new UserModel({
+      method: 'facebook',
+      facebook: {
+        id: profile.id,
+        email: profile.email ? profie.email : '',
+      }
+    });
 
-    // await newUser.save();
-    // return done(null, newUser);
+    await newUser.save();
+    return done(null, newUser);
 
   } catch (error) {
     done(error, false);
